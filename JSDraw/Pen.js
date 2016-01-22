@@ -1,16 +1,14 @@
-var Circle = Shape.extend({
+var Pen = Shape.extend({
 
 	constructor: function() {
-		this.base("Circle");
+		this.base("Pen");
 	},
 
 	draw: function(canvas) {
-		var c = document.getElementById("canvas");
-		canvas.strokeStyle = this.color;
-		var canvas=c.getContext("2d");
 		canvas.beginPath();
-		canvas.arc(this.pos.x, this.pos.y,50,0,2*Math.PI);
-		canvas.lineWidth = 5;
+		canvas.strokeStyle = this.color;
+		canvas.moveTo(this.pos.x, this.pos.y);
+		canvas.lineTo(this.size.x, this.size.y);
 		canvas.stroke();
 		this.base(canvas);
 	},

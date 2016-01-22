@@ -119,3 +119,43 @@ $(function() {
 	$('#clearbutton').click(function(){app.clear()});
 	$('#color').change(function(){app.setColor($(this).val())});
 	});
+$(function() {
+	app = new App('#canvas');
+	$('#penbutton').click(function(){app.shapeFactory = function(){
+		return new Pen();
+	};});
+	$('#clearbutton').click(function(){app.clear()});
+	$('#color').change(function(){app.setColor($(this).val())});
+	});
+$(function() {
+	app = new App('#canvas');
+	$('#textbutton').click(function(){app.shapeFactory = function(){
+		return new text();
+	};});
+	$('#clearbutton').click(function(){app.clear()});
+	$('#color').change(function(){app.setColor($(this).val())});
+	});
+$(function() {
+	app = new App('#canvas');
+	$('#selectbutton').click(function(){app.shapeFactory = function(){
+		return new Shape();
+	};});
+	$('#clearbutton').click(function(){app.clear()});
+	$('#color').change(function(){app.setColor($(this).val())});
+	});
+$(function() {
+	app = new App('#canvas');
+	$('#undobutton').click(function(){app.shapeFactory = function(){
+		return new Command();
+	};});
+	$('#clearbutton').click(function(){app.clear()});
+	$('#color').change(function(){app.setColor($(this).val())});
+	});
+$(function() {
+	app = new App('#canvas');
+	$('#redobutton').click(function(){app.shapeFactory = function(){
+		return new Command();
+	};});
+	$('#clearbutton').click(function(){app.clear()});
+	$('#color').change(function(){app.setColor($(this).val())});
+	});

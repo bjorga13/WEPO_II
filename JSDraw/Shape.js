@@ -1,4 +1,8 @@
+
 var Shape = Base.extend({
+	constructor: function() {
+		this.base("Shape");
+	},
 
 	constructor:function(name) {
 		this.name = name;
