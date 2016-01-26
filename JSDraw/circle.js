@@ -7,11 +7,9 @@ var Circle = Shape.extend({
 	draw: function(canvas) {
 		var radius = this.size.x / 2;
 		var c = document.getElementById("canvas");
-		canvas.strokeStyle = this.color;
 		var canvas=c.getContext("2d");
 		canvas.beginPath();
 		canvas.arc(this.pos.x, this.pos.y, radius, 0,2*Math.PI);
-		canvas.lineWidth = 5;
 		canvas.stroke();
 		this.base(canvas);
 	},
