@@ -5,7 +5,7 @@ var Command = Shape.extend({
 	},
 
 	undoCommand: function(){
-
+ 
 	},
 
 	redoCommand: function(){

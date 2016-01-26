@@ -5,12 +5,9 @@ var Pen = Shape.extend({
 	},
 
 	draw: function(canvas) {
-		canvas.beginPath();
+		var c = document.getElementById("canvas");
 		canvas.strokeStyle = this.color;
-		canvas.moveTo(this.pos.x, this.pos.y);
-		canvas.lineTo(this.size.x, this.size.y);
-		canvas.stroke();
-		this.base(canvas);
+		var canvas = c.getContext("2d");
 	},
 
 	drawing:function(point) {
