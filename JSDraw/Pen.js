@@ -3,16 +3,22 @@ var Pen = Shape.extend({
 	constructor: function() {
 		this.base("Pen");
 	},
-
+	
 	draw: function(canvas) {
-		var c = document.getElementById("canvas");
-		canvas.strokeStyle = this.color;
-		var canvas = c.getContext("2d");
+		var radius = 2;
+		canvas.lineWidth = radius * 2;
+		canvas.lineTo(this.pos.x, this.pos.y);
+		canvas.stroke();
+		canvas.beginPath();
+		canvas.arc(this.pos.x, this.pos.y, radius, Math.PI*2, false);
+		canvas.fill();
+		canvas.beginPath();
+		canvas.moveTo(this.size.x, this.size.y);		
 	},
 
 	drawing:function(point) {
-		this.size.x = point.x - this.pos.x;
-		this.size.y = point.y - this.pos.y;
+		this.size.x = point.x;
+		this.size.y = point.y;
 	},
 
 	added: function(canvas) {
