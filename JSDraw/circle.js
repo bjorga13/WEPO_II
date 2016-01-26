@@ -6,17 +6,15 @@ var Circle = Shape.extend({
 
 	draw: function(canvas) {
 		var radius = this.size.x / 2;
-		var c = document.getElementById("canvas");
-		var canvas=c.getContext("2d");
+		canvas.strokeStyle = this.color;
 		canvas.beginPath();
-		canvas.arc(this.pos.x, this.pos.y, radius, 0,2*Math.PI);
+		canvas.arc(this.pos.x, this.pos.y, this.radius, Math.PI*2, false);
 		canvas.stroke();
 		this.base(canvas);
 	},
 
 	drawing:function(point) {
-		this.size.x = point.x - this.pos.x;
-		this.size.y = point.y - this.pos.y;
+		this.radius = Math.sqrt(Math.pow(point.x - this.pos.x, 2) + Math.pow(point.y - this.pos.y, 2));
 	},
 
 	added: function(canvas) {
