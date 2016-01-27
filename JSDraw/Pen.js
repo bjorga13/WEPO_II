@@ -3,28 +3,18 @@ var Pen = Shape.extend({
 	constructor: function() {
 		this.base("Pen");
 	},
-
+	
 	draw: function(canvas) {
-		
 
-		canvas.strokeStyle = this.color;
-		
-  		canvas.lineJoin = "round";
-		for(var i=0; i < Pen.length; i++) 
-		{		
-	    	context.beginPath();
-		    if(clickDrag[i] && i)
-		    {
-		      context.moveTo(this.x[i-1], this.y[i-1]);
-		    }
-		    else
-		    {
-		       context.moveTo(this.x[i]-1, this.y[i]);
-		    }
-		    context.lineTo(this.x[i], this.y[i]);
-		    context.closePath();
-		    context.stroke();
-		}
+		var radius = 2;
+		canvas.lineWidth = radius * 2;
+		canvas.lineTo(this.pos.x, this.pos.y);
+		canvas.stroke();
+		canvas.beginPath();
+		canvas.arc(this.pos.x, this.pos.y, radius, Math.PI*2, false);
+		canvas.fill();
+		canvas.beginPath();
+		canvas.moveTo(this.size.x, this.size.y);		
 	},
 
 	drawing:function(point) {
