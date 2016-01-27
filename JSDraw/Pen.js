@@ -5,14 +5,31 @@ var Pen = Shape.extend({
 	},
 
 	draw: function(canvas) {
-		var c = document.getElementById("canvas");
+		
+
 		canvas.strokeStyle = this.color;
-		var canvas = c.getContext("2d");
+		
+  		canvas.lineJoin = "round";
+		for(var i=0; i < Pen.length; i++) 
+		{		
+	    	context.beginPath();
+		    if(clickDrag[i] && i)
+		    {
+		      context.moveTo(this.x[i-1], this.y[i-1]);
+		    }
+		    else
+		    {
+		       context.moveTo(this.x[i]-1, this.y[i]);
+		    }
+		    context.lineTo(this.x[i], this.y[i]);
+		    context.closePath();
+		    context.stroke();
+		}
 	},
 
 	drawing:function(point) {
-		this.size.x = point.x - this.pos.x;
-		this.size.y = point.y - this.pos.y;
+		this.size.x = point.x;
+		this.size.y = point.y;
 	},
 
 	added: function(canvas) {

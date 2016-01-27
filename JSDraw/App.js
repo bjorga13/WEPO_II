@@ -54,7 +54,7 @@ function App(canvasSelector) {
 			self.drawingStart(e);
 		} else {
 		}
-
+			paint = true;
 		self.redraw();
 	}
 
